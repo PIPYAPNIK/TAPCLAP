@@ -1,0 +1,313 @@
+@font-face {
+    font-family: "MarvinRound";
+    src: url("font.otf") format("opentype");
+}
+body {
+    font-family: "MarvinRound";
+    font-size: 16px;
+    line-height: 1.2;
+    color: #54183c;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 100%;
+    overflow-x: hidden;
+    box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p, a {
+    padding: 0;
+    margin: 0;
+}
+
+a {
+    outline: none !important;
+    text-decoration: none;
+}
+
+.game {
+    width: 100%;
+    min-height: 100vh;
+    height: 100%;
+    background-image: url("images/background.png");
+    background-size: cover;
+    padding: 100px 15px;
+    box-sizing: border-box;
+}
+
+.stock {
+    width: 100%;
+    max-width: 1040px;
+    min-height: 1250px;
+    height: 100%;
+    background-image: url("images/cart.png");
+    background-size: contain;
+    background-position: center top;
+    background-repeat: no-repeat;
+    margin: 0px auto;
+    box-sizing: border-box;
+    display: flex;
+    position: relative;
+}
+
+.stock__title {
+    position: absolute;
+    font-size: 46px;
+    color: #fff;
+    text-shadow: #7f0b01 5px 0px, #7f0b01 5px 5px, #7f0b01 0px 5px, #7f0b01 -5px 5px, 
+                #7f0b01 -5px 0px, #7f0b01 -5px -5px, #7f0b01 0px -5px, #7f0b01 5px -5px;
+    left: 29%;
+    top: 2.8%;
+}
+
+.stock__info h6 {
+    font-size: 23px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.stock__info {
+    position: absolute;
+    width: 41%;
+    top: 27%;
+    left: 16%;
+}
+
+.stock__info p {
+    text-align: center;
+    padding: 0px 40px;
+}
+
+.price-list {
+    display: flex;
+    width: 43%;
+    left: 12.9%;
+    flex-wrap: wrap;
+    top: 48.5%;
+    position: absolute;
+}
+
+.boxes {
+    display: flex;
+    align-items: stretch;
+    margin: 0px -10px;
+    width: 100%;
+}
+
+.box {
+    padding: 0px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    width: 33.333%;
+}
+
+.box .box__button {
+    padding: 21px 20px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-image: url(images/pink.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-position: center;
+    max-width: 115px;
+    margin-top: -15px;
+    cursor: pointer;
+    transition: background-image 0.3s;
+}
+
+.box .box__button:hover,
+.box .box__button:focus {
+    background-image: url(images/pink-hov.png);
+}
+
+.box .box__button::after {
+    content: '';
+    width: 33px;
+    height: 33px;
+    display: block;
+    background-image: url("images/coin.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: 5px;
+}
+
+.box .box__button a {
+    color: #fff;
+    font-size: 28px;
+    text-shadow: #7f0b01 2px 0px, #7f0b01 2px 2px, #7f0b01 0px 2px, #7f0b01 -2px 2px, 
+    #7f0b01 -2px 0px, #7f0b01 -2px -2px, #7f0b01 0px -2px, #7f0b01 2px -2px;
+}
+
+.bank {
+    display: flex;
+    margin-top: 13px;
+    padding-top: 30px;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.balance {
+    margin-left: 25px;
+}
+
+.balance__title {
+    color: #10507c;
+    font-size: 22px;
+    margin-bottom: 10px;
+}
+
+.bank__item:nth-child(2) {
+    padding-left: 8px;
+}
+
+.bank__item:nth-child(3) {
+    padding-right: 32px;
+}
+
+.balance__sum {
+    display: flex;
+    align-items: center;
+    color: #10507c;
+    font-size: 26px;
+}
+
+.balance__sum::after {
+    content: '';
+    width: 33px;
+    height: 33px;
+    display: block;
+    background-image: url("images/coin.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: 5px;
+}
+
+.bank__item .sum {
+    color: #286d4e;
+    font-size: 32px;
+    margin-bottom: 5px;
+    display: flex;
+    align-items: center;
+}
+
+.bank__item .sum::after {
+    content: '';
+    width: 33px;
+    height: 33px;
+    display: block;
+    background-image: url("images/coin.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin-left: 5px;
+}
+
+.bank__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.bank__item .button {
+    color: #fff;
+    font-size: 20px;
+    text-align: center;
+    text-shadow: #1367dc 2px 0px, #1367dc 2px 2px, #1367dc 0px 2px, #1367dc -2px 2px, 
+    #1367dc -2px 0px, #1367dc -2px -2px, #1367dc 0px -2px, #1367dc 2px -2px;
+    padding: 17px 0px;
+    min-width: 115px;
+    background-image: url("images/blue.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: block;
+    transition: background-image 0.3s;
+}
+
+.bank__item .button:hover,
+.bank__item .button:focus {
+    background-image: url("images/blue-hov.png");
+}
+
+.progress {
+    position: absolute;
+    right: 3%;
+    top: 23.8%;
+}
+
+.progress__line {
+    position: relative;
+    color: #fff;
+    font-size: 33px;
+    text-shadow: #7f0b01 2px 0px, #7f0b01 2px 2px, #7f0b01 0px 2px, #7f0b01 -2px 2px, 
+    #7f0b01 -2px 0px, #7f0b01 -2px -2px, #7f0b01 0px -2px, #7f0b01 2px -2px;
+    border: 20px solid #40c4c8;
+    border-image: url("images/progress-border.png") 20 stretch;
+    min-width: 315px;
+    max-width: 315px;
+    text-align: center;
+    z-index: 1;
+}
+
+.progress__line::after {
+    content: '';
+    width: 60%;
+    height: 124%;
+    position: absolute;
+    left: -20px;
+    top: -2px;
+    background-image: url(images/progress-line.png);
+    background-position: left center;
+    background-repeat: no-repeat;
+    border-radius: 20px;
+    z-index: -1;
+    background-size: 100% 65px;
+}
+
+.progress__line::before {
+    content: '';
+    width: 90px;
+    height: 100px;
+    position: absolute;
+    background-image: url("images/key.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    right: -10%;
+    top: -100%;
+}
+
+.progress__chest {
+    position: relative;
+    margin-bottom: 77px;
+    padding-left: 30px;
+}
+
+.progress__chest::after {
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 170px;
+    background-image: url(images/branch.png);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    right: -5%;
+    bottom: -20%;
+}
+
+.chest-picture {
+    width: 245px;
+    height: 340px;
+    background-image: url("images/chest-close.png");
+    background-position: bottom center;
+    background-repeat: no-repeat;
+    background-size: contain;
+}
