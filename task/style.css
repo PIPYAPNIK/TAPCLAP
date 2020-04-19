@@ -116,6 +116,10 @@ a {
     max-width: 115px;
     margin-top: -15px;
     cursor: pointer;
+    color: #fff;
+    font-size: 28px;
+    text-shadow: #7f0b01 2px 0px, #7f0b01 2px 2px, #7f0b01 0px 2px, #7f0b01 -2px 2px, 
+    #7f0b01 -2px 0px, #7f0b01 -2px -2px, #7f0b01 0px -2px, #7f0b01 2px -2px;
     transition: background-image 0.3s;
 }
 
@@ -134,13 +138,6 @@ a {
     background-repeat: no-repeat;
     background-size: contain;
     margin-left: 5px;
-}
-
-.box .box__button a {
-    color: #fff;
-    font-size: 28px;
-    text-shadow: #7f0b01 2px 0px, #7f0b01 2px 2px, #7f0b01 0px 2px, #7f0b01 -2px 2px, 
-    #7f0b01 -2px 0px, #7f0b01 -2px -2px, #7f0b01 0px -2px, #7f0b01 2px -2px;
 }
 
 .bank {
@@ -163,7 +160,8 @@ a {
 }
 
 .bank__item:nth-child(2) {
-    padding-left: 8px;
+    position: absolute;
+    left: 36%;
 }
 
 .bank__item:nth-child(3) {
@@ -244,21 +242,23 @@ a {
 
 .progress__line {
     position: relative;
+    border: 20px solid transparent;
+    border-image: url("images/progress-border.png") 20 stretch;
+    min-width: 315px;
+    max-width: 315px;
+    z-index: 1;
+}
+
+.progress__line .count {
+    text-align: center;
     color: #fff;
     font-size: 33px;
     text-shadow: #7f0b01 2px 0px, #7f0b01 2px 2px, #7f0b01 0px 2px, #7f0b01 -2px 2px, 
     #7f0b01 -2px 0px, #7f0b01 -2px -2px, #7f0b01 0px -2px, #7f0b01 2px -2px;
-    border: 20px solid #40c4c8;
-    border-image: url("images/progress-border.png") 20 stretch;
-    min-width: 315px;
-    max-width: 315px;
-    text-align: center;
-    z-index: 1;
 }
 
-.progress__line::after {
-    content: '';
-    width: 60%;
+.progress__line .line {
+    width: 0%;
     height: 124%;
     position: absolute;
     left: -20px;
@@ -269,6 +269,7 @@ a {
     border-radius: 20px;
     z-index: -1;
     background-size: 100% 65px;
+    font-size: 0;
 }
 
 .progress__line::before {
@@ -310,4 +311,9 @@ a {
     background-position: bottom center;
     background-repeat: no-repeat;
     background-size: contain;
+    transition: background-image 0.5s;
+}
+
+.open .chest-picture {
+    background-image: url("images/chest-open.png");
 }

@@ -21,25 +21,19 @@
                         <div class="box__picture">
                             <img src="images/box-1.png" alt="Первая коробка">
                         </div>
-                        <div class="box__button">
-                            <a href="#">40</a>
-                        </div>
+                        <a href="#1" class="box__button">40</a>
                     </div>
                     <div class="box">
                         <div class="box__picture">
                             <img src="images/box-2.png" alt="Вторая коробка">
                         </div>
-                        <div class="box__button">
-                            <a href="#">80</a>
-                        </div>
+                        <a href="#1" class="box__button">80</a>
                     </div>
                     <div class="box">
                         <div class="box__picture">
                             <img src="images/box-3.png" alt="Третья коробка">
                         </div>
-                        <div class="box__button">
-                            <a href="#">120</a>
-                        </div>
+                        <a href="#1" class="box__button">120</a>
                     </div>
                 </div>
                 <div class="bank">
@@ -49,11 +43,11 @@
                     </div>
                     <div class="bank__item">
                         <p class="sum">100</p>
-                        <a href="#" class="button">59 руб</a>
+                        <a href="#1" class="button">59 руб</a>
                     </div>
                     <div class="bank__item">
                         <p class="sum">1000</p>
-                        <a href="#" class="button">499 руб</a>
+                        <a href="#1" class="button">499 руб</a>
                     </div>
                 </div>
             </div>
@@ -61,9 +55,66 @@
                 <div class="progress__chest">
                     <div class="chest-picture"></div>
                 </div>
-                <div class="progress__line">5/10</div>
+                <div class="progress__line">
+                    <div class="count">5/10</div>
+                    <div class="line">Line</div>
+                </div>
             </div>
         </section>
     </section>
+
+    <script type="text/javascript">
+
+    let bank = document.querySelector(".bank");
+    let boxes = document.querySelector(".boxes");
+    bank.addEventListener("click",
+        function(e){
+            e = e || window.event;
+            let target = e.target || e.srcElement;
+            if(target.classList.contains('button')) {
+                let balance = document.querySelector(".balance__sum");
+                let targetParent = target.parentNode;
+                let targetSum = targetParent.querySelector(".sum").textContent;
+                balance.textContent = parseInt(balance.textContent) + parseInt(targetSum);
+            }
+        }
+    );
+
+    boxes.addEventListener("click",
+        function(e){
+            e = e || window.event;
+            let target = e.target || e.srcElement;
+            if(target.classList.contains('box__button')) {
+                let balance = document.querySelector(".balance__sum");
+                let balanceSum = parseInt(balance.textContent);
+                let targetSum = parseInt(target.textContent);
+                let progress = document.querySelector(".progress__line .count");
+                let progressText = progress.textContent;
+                let arrProgress = progressText.split("/");
+                let progressLine = document.querySelector(".progress__line .line");
+                
+                if(parseInt(arrProgress[0]) + 1 == parseInt(arrProgress[1])){
+                    document.querySelector(".progress").classList.add("open");
+                    progress.textContent = parseInt(arrProgress[0]) + 1 +"/"+arrProgress[1];
+                    progressLine.style.width = (115 / parseInt(arrProgress[1])) * (parseInt(arrProgress[0]) + 1) +"%";
+                }
+                else if(parseInt(arrProgress[0]) + 1 > parseInt(arrProgress[1])) {
+                    document.querySelector(".progress").classList.remove("open");
+                    progress.textContent = "1/"+arrProgress[1];
+                    progressLine.style.width = (115 / parseInt(arrProgress[1])) * 1 +"%";
+                }
+                else {
+                    progress.textContent = parseInt(arrProgress[0]) + 1 +"/"+arrProgress[1];
+                    progressLine.style.width = (115 / parseInt(arrProgress[1])) * (parseInt(arrProgress[0]) + 1) +"%";
+                }
+                if(balanceSum - targetSum >= 0) {
+                    balance.textContent = balanceSum - targetSum;
+                }
+                else alert("Вам нужно пополнить баланс!");
+            }
+        }
+    );
+
+    </script>
 </body>
 </html>
